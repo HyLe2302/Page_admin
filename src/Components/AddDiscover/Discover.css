@@ -1,0 +1,235 @@
+.discover {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #e4e4e4;
+    min-height: 100vh;
+    padding: 1rem;
+    gap: 2rem;
+  }
+  
+  /* Container chứa từng bảng */
+  .table-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  /* Tiêu đề của bảng */
+  .table-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Định dạng bảng */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Định dạng các cột trong bảng */
+  th, td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  /* Định dạng ảnh trong bảng */
+  img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  /* Cột Actions */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    height: 113px;
+    align-items: center;
+  }
+  
+  .action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.3s;
+  }
+  
+  /* Nút Thêm */
+  .action-btn.add {
+    background-color: #4CAF50;
+    color: white;
+    height: 50px;
+  }
+  
+  .action-btn.add:hover {
+    background-color: #45a049;
+  }
+  
+  /* Nút Sửa */
+  .action-btn.edit {
+    background-color: #FFC107;
+    color: white;
+    height: 50px;
+  }
+  
+  .action-btn.edit:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Nút Xóa */
+  .action-btn.delete {
+    background-color: #F44336;
+    color: white;
+    height: 50px;
+  }
+  
+  .action-btn.delete:hover {
+    background-color: #e53935;
+  }
+  
+  /* Điều chỉnh bảng khi màn hình nhỏ hơn (Responsive) */
+  @media (max-width: 768px) {
+    .table-container {
+      padding: 0.5rem;
+    }
+  
+    table {
+      font-size: 0.9rem;
+    }
+  
+    img {
+      max-width: 80px;
+    }
+  
+    .action-btn {
+      font-size: 0.75rem;
+    }
+  }
+
+  .form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);  /* Tối hơn để nhấn mạnh form */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;  /* Đảm bảo form nằm trên các phần tử khác */
+    backdrop-filter: blur(5px);  /* Làm mờ background phía dưới */
+  }
+  
+  /* Container của form */
+  .form-container {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    z-index: 1001;
+    transition: transform 0.3s ease-out;
+    transform: scale(0.95);  /* Giảm kích thước để tạo hiệu ứng zoom */
+  }
+  
+  .form-container.show {
+    transform: scale(1);  /* Quay lại kích thước bình thường khi form xuất hiện */
+  }
+  
+  /* Tiêu đề form */
+  .form-container h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Style label & input */
+  .form-container label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-container input:focus,
+  .form-container textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);  /* Tạo hiệu ứng sáng khi focus */
+  }
+  
+  /* Style nút Lưu/Hủy */
+  .form-container button {
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .form-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  .form-container button[type="button"] {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .form-container button[type="button"]:hover {
+    background-color: #e53935;
+  }
+  
+  /* Style cho các nút Lưu và Hủy */
+  .form-container button + button {
+    margin-left: 1rem;  /* Tạo khoảng cách giữa các nút */
+  }
+  
+  /* Style cho các field (input và textarea) */
+  .form-container div {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Responsive cho form */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 1.5rem;
+      width: 90%;
+    }
+    
+    .form-container h2 {
+      font-size: 1.5rem;
+    }
+  }

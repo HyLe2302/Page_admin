@@ -31,9 +31,10 @@ const Navigation = ( )=>{
             <span>craete</span>
         </header>
 
-        <Nav Icon={TbDashboard} title={"Dashboard"}/>
-        <Nav Icon={VscGraphLine} title={"Analytics"}/>
-        <Nav Icon={FiMessageSquare} title={"Message"}/>
+        <Nav Icon={TbDashboard} title={"Dashboard"} to="/"/>
+        {/* <Nav Icon={VscGraphLine} title={"Analytics"}/> */}
+        <Nav Icon={VscGraphLine} title={"Analytics"} to="/discover" />
+        <Nav Icon={FiMessageSquare} title={"Message"} to="/test"/>
         <Nav Icon={AiOutlineUsergroupAdd} title={"Follower"}/>
 
         <div className="divider"></div>
